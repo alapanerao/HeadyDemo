@@ -15,16 +15,30 @@ class ViewController: UIViewController {
     
     @IBOutlet var categoryCollectionView: UICollectionView!
     private var request: AnyObject?
+    private var selectedCategory: Category?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ProductListViewController {
+            if let cell = sender as? CategoryCell,
+                let indexPath = self.categoryCollectionView.indexPath(for: cell) {
+                guard let categoryData = categoryArray[indexPath.row] as? Category else {
+                    return
+                }
+                selectedCategory = categoryData
+            }
+            let vc = segue.destination as? ProductListViewController
+            vc?.categoryData = selectedCategory
+        }
+    }
 }
 
 extension ViewController {
     func fetchData() {
-        
         let categoryRequest = APIRequest(resource: DataResource())
         request = categoryRequest
         categoryRequest.load { [weak self] (categories: [Category]?) in
@@ -32,7 +46,6 @@ extension ViewController {
                 return
             }
             categoryArray = categories as NSArray
-            print(categories)
             self!.categoryCollectionView.reloadData()
         }
     }
