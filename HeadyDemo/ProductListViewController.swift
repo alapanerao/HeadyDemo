@@ -34,6 +34,7 @@ extension ProductListViewController : UITableViewDataSource {
             cell.productName?.text = productData.name
             cell.taxLabel?.text = productData.tax.name + " : " + String(productData.tax.value) + "%"
             
+            cell.setData(data: productData.variants)
             cell.dateAddedLabel?.text = self.getFormattedDate(dateToFormat: productData.date_added)
         }
         
@@ -43,7 +44,7 @@ extension ProductListViewController : UITableViewDataSource {
 
 extension ProductListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 180
     }
 }
 

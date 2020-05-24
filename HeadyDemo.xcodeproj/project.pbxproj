@@ -20,6 +20,8 @@
 		B4A88E13247AA292004A7012 /* CategoryChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */; };
 		B4A88E16247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E15247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift */; };
 		B4A88E18247AAB2B004A7012 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */; };
+		B4A88E1B247AC9F1004A7012 /* VariantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E19247AC9F1004A7012 /* VariantCell.swift */; };
+		B4A88E1C247AC9F1004A7012 /* VariantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A88E1A247AC9F1004A7012 /* VariantCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryChildViewController.swift; sourceTree = "<group>"; };
 		B4A88E15247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableSectionViewController.swift; sourceTree = "<group>"; };
 		B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		B4A88E19247AC9F1004A7012 /* VariantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantCell.swift; sourceTree = "<group>"; };
+		B4A88E1A247AC9F1004A7012 /* VariantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariantCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				B40C10BB24797D2500BF766F /* ProductListViewController.swift */,
 				B4A88E102479969C004A7012 /* NetworkRequest.swift */,
 				B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */,
+				B4A88E19247AC9F1004A7012 /* VariantCell.swift */,
+				B4A88E1A247AC9F1004A7012 /* VariantCell.xib */,
 			);
 			path = HeadyDemo;
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B40C10AE2479505C00BF766F /* LaunchScreen.storyboard in Resources */,
+				B4A88E1C247AC9F1004A7012 /* VariantCell.xib in Resources */,
 				B40C10AB2479505C00BF766F /* Assets.xcassets in Resources */,
 				B40C10A92479505B00BF766F /* Main.storyboard in Resources */,
 			);
@@ -171,6 +178,7 @@
 				B4A88E112479969C004A7012 /* NetworkRequest.swift in Sources */,
 				B40C10A62479505B00BF766F /* ViewController.swift in Sources */,
 				B40C10B82479655F00BF766F /* CategoryModel.swift in Sources */,
+				B4A88E1B247AC9F1004A7012 /* VariantCell.swift in Sources */,
 				B4A88E16247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift in Sources */,
 				B40C10BC24797D2500BF766F /* ProductListViewController.swift in Sources */,
 				B40C10A42479505B00BF766F /* AppDelegate.swift in Sources */,
