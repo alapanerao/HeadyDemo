@@ -13,6 +13,7 @@ class CategoryChildViewController: CollapsibleTableSectionViewController {
     @IBOutlet var categoryChildCollectionView: UICollectionView!
     
     var categoryData: [Category]?
+    var rankingsArray: [Ranking]?
     var displayDataArray: [Category]?
     var selectedCategory: Category?
     
@@ -73,6 +74,7 @@ extension CategoryChildViewController: CollapsibleTableSectionDelegate {
             
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ProductListViewController") as? ProductListViewController
             vc?.categoryData = category?.first
+            vc?.rankingsArray = rankingsArray
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }

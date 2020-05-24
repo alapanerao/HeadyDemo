@@ -12,6 +12,7 @@ class ProductListViewController: UIViewController {
     
     let reuseIdentifier = "productCell"
     var categoryData: Category?
+    var rankingsArray: [Ranking]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,13 @@ extension ProductListViewController : UITableViewDataSource {
             
             cell.setData(data: productData.variants)
             cell.dateAddedLabel?.text = self.getFormattedDate(dateToFormat: productData.date_added)
+            
+            let viewCount = getViewData(withId: productData.id)
+            let orderCount = getOrderCountData(withId: productData.id)
+            let shareCount = getShareData(withId: productData.id)
+            
+            let statisticsText = viewCount + orderCount + shareCount
+            cell.statisticsLabel.text = statisticsText
         }
         
         return cell
@@ -44,7 +52,7 @@ extension ProductListViewController : UITableViewDataSource {
 
 extension ProductListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 200
     }
 }
 
@@ -56,5 +64,29 @@ extension ProductListViewController {
         dateFormatter.dateFormat = "dd MMMM yyyy"
         let dateAdded = dateFormatter.string(from: date)
         return "Added on " + dateAdded
+    }
+    
+    func getViewData(withId: Int) -> String {
+        let viewData = rankingsArray?.first?.products.filter{$0.id == withId}
+        if viewData!.count > 0 {
+            return "Views : " + "\(viewData![0].view_count ?? 0) "
+        }
+        return ""
+    }
+    
+    func getOrderCountData(withId: Int) -> String {
+        let data = rankingsArray?[1].products.filter{$0.id == withId}
+        if data!.count > 0 {
+            return "Orders : " + "\(data![0].order_count ?? 0) "
+        }
+        return ""
+    }
+    
+    func getShareData(withId: Int) -> String {
+        let data = rankingsArray?[2].products.filter{$0.id == withId}
+        if data!.count > 0 {
+            return "Shares : " + "\(data![0].shares ?? 0) "
+        }
+        return ""
     }
 }

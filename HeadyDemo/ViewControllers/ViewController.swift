@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     private let reuseIdentifier = "categoryCell";
     private var categoryArray: NSArray = []
+    private var rankingArray: [Ranking] = []
     private var displayDataArray: NSArray = []
     
     @IBOutlet var categoryCollectionView: UICollectionView!
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
             }
             let vc = segue.destination as? CategoryChildViewController
             vc?.categoryData = categoryArray as? [Category]
+            vc?.rankingsArray = rankingArray
             vc?.selectedCategory = selectedCategory
         }
     }
@@ -86,7 +88,7 @@ extension ViewController {
     func fetchData() {
         let categoryRequest = APIRequest(resource: DataResource())
         request = categoryRequest
-        categoryRequest.load { [weak self] (categories: [Category]?) in
+        categoryRequest.load { [weak self] (categories: [Category]?, rankings: [Ranking]?) in
             guard let categories = categories else {
                 return
             }
@@ -96,6 +98,10 @@ extension ViewController {
             self!.categoryArray = categories as NSArray
             
             self!.categoryCollectionView.reloadData()
+            
+            if let rankings = rankings {
+                self!.rankingArray = rankings
+            }
         }
     }
 }

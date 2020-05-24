@@ -15,6 +15,7 @@ class ProductCell: UITableViewCell {
     @IBOutlet var productName: UILabel!
     @IBOutlet var taxLabel: UILabel!
     @IBOutlet var dateAddedLabel: UILabel!
+    @IBOutlet var statisticsLabel: UILabel!
     
     var variantList: [Variant]!
     

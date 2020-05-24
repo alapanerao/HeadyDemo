@@ -11,19 +11,22 @@ import UIKit
 
 protocol NetworkRequest: AnyObject {
     associatedtype ModelType
-    func decode(_ data: Data) -> ModelType?
-    func load(withCompletion completion: @escaping (ModelType?) -> Void)
+    associatedtype ModelTypeRanking
+//    func decode(_ data: Data) -> (ModelType?, ModelTypeRanking?)
+    func load(withCompletion completion: @escaping (ModelType?, ModelTypeRanking?) -> Void)
+    func decodeCategory(_ data: Data) -> (ModelType?)
+    func decodeRanking(_ data: Data) -> (ModelTypeRanking?)
 }
 
 extension NetworkRequest {
-    fileprivate func load(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void) {
+    fileprivate func load(_ url: URL, withCompletion completion: @escaping (ModelType?, ModelTypeRanking?) -> Void) {
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
         let task = session.dataTask(with: url, completionHandler: { [weak self] (data: Data?, response: URLResponse?, error: Error?) -> Void in
             guard let data = data else {
-                completion(nil)
+                completion(nil, nil)
                 return
             }
-            completion(self?.decode(data))
+            completion(self?.decodeCategory(data), self?.decodeRanking(data))
         })
         task.resume()
     }
@@ -38,12 +41,17 @@ class APIRequest<Resource: APIResource> {
 }
 
 extension APIRequest: NetworkRequest {
-    func decode(_ data: Data) -> [Resource.ModelType]? {
+    func decodeCategory(_ data: Data) -> ([Resource.ModelType]?) {
         let wrapper = try? JSONDecoder().decode(Wrapper<Resource.ModelType, Resource.ModelTypeRanking>.self, from: data)
-        return wrapper?.categories
+        return (wrapper?.categories)
     }
     
-    func load(withCompletion completion: @escaping ([Resource.ModelType]?) -> Void) {
+    func decodeRanking(_ data: Data) -> ([Resource.ModelTypeRanking]?) {
+        let wrapper = try? JSONDecoder().decode(Wrapper<Resource.ModelType, Resource.ModelTypeRanking>.self, from: data)
+        return (wrapper?.rankings)
+    }
+    
+    func load(withCompletion completion: @escaping ([Resource.ModelType]?, [Resource.ModelTypeRanking]?) -> Void) {
         load(resource.url, withCompletion: completion)
     }
 }

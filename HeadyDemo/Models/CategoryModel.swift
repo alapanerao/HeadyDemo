@@ -71,14 +71,32 @@ extension Tax: Decodable {
     }
 }
 
+struct RankingProduct {
+    let id: Int
+    let view_count: Int64?
+    let order_count: Int64?
+    let shares: Int64?
+}
+
+extension RankingProduct: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case view_count
+        case order_count
+        case shares
+    }
+}
+
 
 struct Ranking {
     let ranking: String
+    let products: [RankingProduct]
 }
 
 extension Ranking: Decodable {
     enum CodingKeys: String, CodingKey {
         case ranking
+        case products
     }
 }
 
