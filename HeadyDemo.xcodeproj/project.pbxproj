@@ -17,6 +17,9 @@
 		B40C10BA24797B4800BF766F /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C10B924797B4800BF766F /* ProductCell.swift */; };
 		B40C10BC24797D2500BF766F /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C10BB24797D2500BF766F /* ProductListViewController.swift */; };
 		B4A88E112479969C004A7012 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E102479969C004A7012 /* NetworkRequest.swift */; };
+		B4A88E13247AA292004A7012 /* CategoryChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */; };
+		B4A88E16247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E15247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift */; };
+		B4A88E18247AAB2B004A7012 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		B40C10B924797B4800BF766F /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B40C10BB24797D2500BF766F /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		B4A88E102479969C004A7012 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryChildViewController.swift; sourceTree = "<group>"; };
+		B4A88E15247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableSectionViewController.swift; sourceTree = "<group>"; };
+		B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		B40C10A22479505B00BF766F /* HeadyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B4A88E14247AAAF7004A7012 /* CollapsibleTable */,
 				B40C10A32479505B00BF766F /* AppDelegate.swift */,
 				B40C10A52479505B00BF766F /* ViewController.swift */,
 				B40C10A72479505B00BF766F /* Main.storyboard */,
@@ -75,8 +82,18 @@
 				B40C10B924797B4800BF766F /* ProductCell.swift */,
 				B40C10BB24797D2500BF766F /* ProductListViewController.swift */,
 				B4A88E102479969C004A7012 /* NetworkRequest.swift */,
+				B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */,
 			);
 			path = HeadyDemo;
+			sourceTree = "<group>";
+		};
+		B4A88E14247AAAF7004A7012 /* CollapsibleTable */ = {
+			isa = PBXGroup;
+			children = (
+				B4A88E15247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift */,
+				B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */,
+			);
+			path = CollapsibleTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,13 +167,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A88E18247AAB2B004A7012 /* CollapsibleTableViewHeader.swift in Sources */,
 				B4A88E112479969C004A7012 /* NetworkRequest.swift in Sources */,
 				B40C10A62479505B00BF766F /* ViewController.swift in Sources */,
 				B40C10B82479655F00BF766F /* CategoryModel.swift in Sources */,
+				B4A88E16247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift in Sources */,
 				B40C10BC24797D2500BF766F /* ProductListViewController.swift in Sources */,
 				B40C10A42479505B00BF766F /* AppDelegate.swift in Sources */,
 				B40C10B62479581A00BF766F /* CategoryCell.swift in Sources */,
 				B40C10BA24797B4800BF766F /* ProductCell.swift in Sources */,
+				B4A88E13247AA292004A7012 /* CategoryChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

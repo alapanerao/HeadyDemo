@@ -8,10 +8,11 @@
 
 import UIKit
 
-let reuseIdentifier = "categoryCell";
-var categoryArray: NSArray = []
-
 class ViewController: UIViewController {
+    
+    private let reuseIdentifier = "categoryCell";
+    private var categoryArray: NSArray = []
+    private var displayDataArray: NSArray = []
     
     @IBOutlet var categoryCollectionView: UICollectionView!
     private var request: AnyObject?
@@ -20,49 +21,50 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        self.title = "Categories"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ProductListViewController {
+        if segue.destination is CategoryChildViewController {
             if let cell = sender as? CategoryCell,
                 let indexPath = self.categoryCollectionView.indexPath(for: cell) {
-                guard let categoryData = categoryArray[indexPath.row] as? Category else {
+                guard let categoryData = displayDataArray[indexPath.row] as? Category else {
                     return
                 }
                 selectedCategory = categoryData
             }
-            let vc = segue.destination as? ProductListViewController
-            vc?.categoryData = selectedCategory
-        }
-    }
-}
-
-extension ViewController {
-    func fetchData() {
-        let categoryRequest = APIRequest(resource: DataResource())
-        request = categoryRequest
-        categoryRequest.load { [weak self] (categories: [Category]?) in
-            guard let categories = categories else {
-                return
-            }
-            categoryArray = categories as NSArray
-            self!.categoryCollectionView.reloadData()
+            let vc = segue.destination as? CategoryChildViewController
+            vc?.categoryData = categoryArray as? [Category]
+            vc?.selectedCategory = selectedCategory
         }
     }
 }
 
 extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryArray.count
+        return displayDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCell
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCell
         
-        let category = categoryArray[indexPath.row] as! Category
-        
+        let category = displayDataArray[indexPath.row] as! Category
         cell.categoryName!.text = category.name
+        cell = getCellWithShadow(cell: cell)
         
+        return cell
+    }
+}
+
+extension ViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewSize = collectionView.frame.size.width - 50
+        return CGSize(width: collectionViewSize/3, height: collectionViewSize/3)
+    }
+}
+
+extension ViewController {
+    func getCellWithShadow(cell: CategoryCell) -> CategoryCell {
         cell.contentView.layer.cornerRadius = 2.0;
         cell.contentView.layer.borderWidth = 1.0;
         cell.contentView.layer.borderColor = UIColor.clear.cgColor;
@@ -79,12 +81,21 @@ extension ViewController : UICollectionViewDataSource {
         
         return cell
     }
-}
-
-extension ViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewSize = collectionView.frame.size.width - 50
-        return CGSize(width: collectionViewSize/3, height: collectionViewSize/3)
+    
+    func fetchData() {
+        let categoryRequest = APIRequest(resource: DataResource())
+        request = categoryRequest
+        categoryRequest.load { [weak self] (categories: [Category]?) in
+            guard let categories = categories else {
+                return
+            }
+            
+            let arrayOfChild = categories.flatMap{ $0.child_categories}
+            self!.displayDataArray = categories.filter { !arrayOfChild.contains($0.id) } as NSArray
+            self!.categoryArray = categories as NSArray
+            
+            self!.categoryCollectionView.reloadData()
+        }
     }
 }
 

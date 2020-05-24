@@ -12,6 +12,7 @@ struct Category {
     let id: Int
     let name: String
     let products: [Product]
+    let child_categories: [Int]
 }
 
 extension Category: Decodable {
@@ -19,6 +20,7 @@ extension Category: Decodable {
         case id
         case name
         case products
+        case child_categories
     }
 }
 
@@ -43,12 +45,16 @@ extension Product: Decodable {
 struct Variant {
     let id: Int
     let color: String
+    let size: Int?
+    let price: Int32?
 }
 
 extension Variant: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case color
+        case size
+        case price
     }
 }
 

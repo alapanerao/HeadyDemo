@@ -15,7 +15,7 @@ class ProductListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(categoryData!)
+        self.title = categoryData?.name
     }
 }
 
@@ -31,7 +31,10 @@ extension ProductListViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ProductCell
         
         if let productData = categoryData?.products[indexPath.row] {
-            cell.textLabel?.text = productData.name
+            cell.productName?.text = productData.name
+            cell.taxLabel?.text = productData.tax.name + " : " + String(productData.tax.value) + "%"
+            
+            cell.dateAddedLabel?.text = self.getFormattedDate(dateToFormat: productData.date_added)
         }
         
         return cell
@@ -40,6 +43,17 @@ extension ProductListViewController : UITableViewDataSource {
 
 extension ProductListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 160
+    }
+}
+
+extension ProductListViewController {
+    func getFormattedDate(dateToFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = dateFormatter.date(from:dateToFormat)!
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        let dateAdded = dateFormatter.string(from: date)
+        return "Added on " + dateAdded
     }
 }

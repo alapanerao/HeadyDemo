@@ -12,9 +12,10 @@ class ProductCell: UITableViewCell {
     
     //    @IBOutlet var image: UIImageView!
     @IBOutlet var productName: UILabel!
+    @IBOutlet var taxLabel: UILabel!
+    @IBOutlet var dateAddedLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 }
