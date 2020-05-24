@@ -44,6 +44,11 @@ extension ProductCell : UICollectionViewDataSource {
         if let variantData = variantList?[indexPath.row] {
             cell.colorView.backgroundColor = UIColor.colorWith(name: variantData.color.lowercased())
             
+            cell.colorView.layer.shadowColor = UIColor.black.cgColor
+            cell.colorView.layer.shadowOpacity = 0.3
+            cell.colorView.layer.shadowOffset = .zero
+            cell.colorView.layer.shadowRadius = 2
+            
             if let size = variantData.size {
                 cell.labelSize.text = String(size)
             } else {

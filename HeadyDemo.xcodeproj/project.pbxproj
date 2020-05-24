@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B40C10A42479505B00BF766F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C10A32479505B00BF766F /* AppDelegate.swift */; };
-		B40C10A62479505B00BF766F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C10A52479505B00BF766F /* ViewController.swift */; };
+		B40C10A62479505B00BF766F /* CategoryGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C10A52479505B00BF766F /* CategoryGridViewController.swift */; };
 		B40C10A92479505B00BF766F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40C10A72479505B00BF766F /* Main.storyboard */; };
 		B40C10AB2479505C00BF766F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40C10AA2479505C00BF766F /* Assets.xcassets */; };
 		B40C10AE2479505C00BF766F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40C10AC2479505C00BF766F /* LaunchScreen.storyboard */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		B40C10A02479505B00BF766F /* HeadyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40C10A32479505B00BF766F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B40C10A52479505B00BF766F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B40C10A52479505B00BF766F /* CategoryGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGridViewController.swift; sourceTree = "<group>"; };
 		B40C10A82479505B00BF766F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B40C10AA2479505C00BF766F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B40C10AD2479505C00BF766F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		B4A88E25247AE9FA004A7012 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B40C10A52479505B00BF766F /* ViewController.swift */,
+				B40C10A52479505B00BF766F /* CategoryGridViewController.swift */,
 				B40C10BB24797D2500BF766F /* ProductListViewController.swift */,
 				B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */,
 			);
@@ -235,7 +235,7 @@
 			files = (
 				B4A88E18247AAB2B004A7012 /* CollapsibleTableViewHeader.swift in Sources */,
 				B4A88E112479969C004A7012 /* NetworkRequest.swift in Sources */,
-				B40C10A62479505B00BF766F /* ViewController.swift in Sources */,
+				B40C10A62479505B00BF766F /* CategoryGridViewController.swift in Sources */,
 				B40C10B82479655F00BF766F /* CategoryModel.swift in Sources */,
 				B4A88E1B247AC9F1004A7012 /* VariantCell.swift in Sources */,
 				B4A88E23247AE9B6004A7012 /* Color.swift in Sources */,

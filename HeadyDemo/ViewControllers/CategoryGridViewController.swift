@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CategoryGridViewController: UIViewController {
     
     private let reuseIdentifier = "categoryCell";
     private var categoryArray: NSArray = []
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : UICollectionViewDataSource {
+extension CategoryGridViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return displayDataArray.count
     }
@@ -59,14 +59,14 @@ extension ViewController : UICollectionViewDataSource {
     }
 }
 
-extension ViewController : UICollectionViewDelegateFlowLayout {
+extension CategoryGridViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewSize = collectionView.frame.size.width - 50
-        return CGSize(width: collectionViewSize/3, height: collectionViewSize/3)
+        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
     }
 }
 
-extension ViewController {
+extension CategoryGridViewController {
     func getCellWithShadow(cell: CategoryCell) -> CategoryCell {
         cell.contentView.layer.cornerRadius = 2.0;
         cell.contentView.layer.borderWidth = 1.0;
