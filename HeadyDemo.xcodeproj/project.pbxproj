@@ -22,6 +22,7 @@
 		B4A88E18247AAB2B004A7012 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */; };
 		B4A88E1B247AC9F1004A7012 /* VariantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E19247AC9F1004A7012 /* VariantCell.swift */; };
 		B4A88E1C247AC9F1004A7012 /* VariantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A88E1A247AC9F1004A7012 /* VariantCell.xib */; };
+		B4A88E23247AE9B6004A7012 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A88E22247AE9B6004A7012 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
 		B4A88E19247AC9F1004A7012 /* VariantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantCell.swift; sourceTree = "<group>"; };
 		B4A88E1A247AC9F1004A7012 /* VariantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariantCell.xib; sourceTree = "<group>"; };
+		B4A88E22247AE9B6004A7012 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,21 +76,16 @@
 		B40C10A22479505B00BF766F /* HeadyDemo */ = {
 			isa = PBXGroup;
 			children = (
-				B4A88E14247AAAF7004A7012 /* CollapsibleTable */,
 				B40C10A32479505B00BF766F /* AppDelegate.swift */,
-				B40C10A52479505B00BF766F /* ViewController.swift */,
-				B40C10A72479505B00BF766F /* Main.storyboard */,
+				B4A88E25247AE9FA004A7012 /* ViewControllers */,
+				B4A88E26247AEA41004A7012 /* Models */,
+				B4A88E28247AEAB4004A7012 /* Cells */,
+				B4A88E29247AEB32004A7012 /* Network */,
+				B4A88E24247AE9D7004A7012 /* Helpers */,
+				B4A88E21247AE959004A7012 /* Extentions */,
+				B4A88E27247AEA5A004A7012 /* Storyboards */,
 				B40C10AA2479505C00BF766F /* Assets.xcassets */,
-				B40C10AC2479505C00BF766F /* LaunchScreen.storyboard */,
 				B40C10AF2479505C00BF766F /* Info.plist */,
-				B40C10B52479581A00BF766F /* CategoryCell.swift */,
-				B40C10B72479655F00BF766F /* CategoryModel.swift */,
-				B40C10B924797B4800BF766F /* ProductCell.swift */,
-				B40C10BB24797D2500BF766F /* ProductListViewController.swift */,
-				B4A88E102479969C004A7012 /* NetworkRequest.swift */,
-				B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */,
-				B4A88E19247AC9F1004A7012 /* VariantCell.swift */,
-				B4A88E1A247AC9F1004A7012 /* VariantCell.xib */,
 			);
 			path = HeadyDemo;
 			sourceTree = "<group>";
@@ -100,6 +97,68 @@
 				B4A88E17247AAB2B004A7012 /* CollapsibleTableViewHeader.swift */,
 			);
 			path = CollapsibleTable;
+			sourceTree = "<group>";
+		};
+		B4A88E21247AE959004A7012 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				B4A88E22247AE9B6004A7012 /* Color.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		B4A88E24247AE9D7004A7012 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B4A88E14247AAAF7004A7012 /* CollapsibleTable */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B4A88E25247AE9FA004A7012 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B40C10A52479505B00BF766F /* ViewController.swift */,
+				B40C10BB24797D2500BF766F /* ProductListViewController.swift */,
+				B4A88E12247AA292004A7012 /* CategoryChildViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B4A88E26247AEA41004A7012 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B40C10B72479655F00BF766F /* CategoryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B4A88E27247AEA5A004A7012 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B40C10A72479505B00BF766F /* Main.storyboard */,
+				B40C10AC2479505C00BF766F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B4A88E28247AEAB4004A7012 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B40C10B52479581A00BF766F /* CategoryCell.swift */,
+				B40C10B924797B4800BF766F /* ProductCell.swift */,
+				B4A88E19247AC9F1004A7012 /* VariantCell.swift */,
+				B4A88E1A247AC9F1004A7012 /* VariantCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B4A88E29247AEB32004A7012 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B4A88E102479969C004A7012 /* NetworkRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +238,7 @@
 				B40C10A62479505B00BF766F /* ViewController.swift in Sources */,
 				B40C10B82479655F00BF766F /* CategoryModel.swift in Sources */,
 				B4A88E1B247AC9F1004A7012 /* VariantCell.swift in Sources */,
+				B4A88E23247AE9B6004A7012 /* Color.swift in Sources */,
 				B4A88E16247AAB0D004A7012 /* CollapsibleTableSectionViewController.swift in Sources */,
 				B40C10BC24797D2500BF766F /* ProductListViewController.swift in Sources */,
 				B40C10A42479505B00BF766F /* AppDelegate.swift in Sources */,

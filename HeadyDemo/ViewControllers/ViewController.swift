@@ -48,9 +48,10 @@ extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCell
         
-        let category = displayDataArray[indexPath.row] as! Category
-        cell.categoryName!.text = category.name
-        cell = getCellWithShadow(cell: cell)
+        if let category = displayDataArray[indexPath.row] as? Category {
+            cell.categoryName!.text = category.name
+            cell = getCellWithShadow(cell: cell)
+        }
         
         return cell
     }
