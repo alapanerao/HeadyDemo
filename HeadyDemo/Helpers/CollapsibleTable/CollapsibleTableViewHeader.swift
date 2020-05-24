@@ -18,7 +18,7 @@ open class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
     var section: Int = 0
     
     let titleLabel = UILabel()
-    let arrowLabel = UILabel()
+    let arrowImage = UIImageView(image: UIImage(named: "icon-right"))
     
     override public init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -29,13 +29,12 @@ open class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
         let marginGuide = contentView.layoutMarginsGuide
         
         // Arrow label
-        contentView.addSubview(arrowLabel)
-        arrowLabel.textColor = UIColor(hex: 0xF9F3E6)
-        arrowLabel.translatesAutoresizingMaskIntoConstraints = false
-        arrowLabel.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        arrowLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        arrowLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        arrowLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        contentView.addSubview(arrowImage)
+        arrowImage.translatesAutoresizingMaskIntoConstraints = false
+        arrowImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        arrowImage.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        arrowImage.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        arrowImage.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
         
         // Title label
         contentView.addSubview(titleLabel)
@@ -71,7 +70,7 @@ open class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
         //
         // Animate the arrow rotation (see Extensions.swf)
         //
-        arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
+        arrowImage.rotate(collapsed ? 0.0 : .pi / 2)
     }
     
 }
